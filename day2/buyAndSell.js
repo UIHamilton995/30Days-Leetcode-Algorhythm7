@@ -1,4 +1,4 @@
-var maxProfit = function(prices) {
+function maxProfit(prices) {
   // initialize minPrice as the first price (we can't use Math.min directly on an array)
   let minPrice = prices[0];
   let maxProfit = 0;

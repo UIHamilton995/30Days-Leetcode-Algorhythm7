@@ -1,4 +1,4 @@
-var twoSum = function(nums, target) {
+function twoSum(nums, target) {
   let positions = []  // to keep track of matching numbers’ indices
   let indices = []    // to store final answer pair
 
@@ -51,7 +51,7 @@ const twoSum = (nums, target) => {
   return [];
 };
 
-/*--------------------------- OR -------------------------*/
+/*--------------------------- OR  FASTEST -------------------------*/
 
 var twoSum = function(nums, target) {
   // obj will store the numbers we *expect to see later* (the complements)
