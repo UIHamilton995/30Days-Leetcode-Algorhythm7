@@ -51,3 +51,53 @@ return findRight || findLeft
 
 /** --------------------------------------------- OR ------------------------------------------------ */
 
+
+/**
+ * hasPathSum(root, targetSum)
+ * ---------------------------
+ * Checks if there exists a path from the root node down to any leaf node
+ * where the sum of all node values equals targetSum.
+ * 
+ * This version uses a HELPER FUNCTION (getSum) to track the running sum
+ * while traversing through the tree.
+ */
+
+var hasPathSum = function(root, targetSum) {
+    
+  /**
+   * Helper Function: getSum(root, sum)
+   * ---------------------------------
+   * This function traverses the binary tree recursively while
+   * maintaining a "running total" of all node values along the current path.
+   *
+   * @param {TreeNode} root - the current node being visited
+   * @param {number} sum - the accumulated sum of node values along the path
+   *
+   * @return {boolean} - true if a valid path is found, otherwise false
+   */
+  function getSum(root, sum) {
+      // 🧩 Base Case 1: If the node is null, we return 0 (or false).
+      // No node → no sum → no path.
+      if (!root) return 0;
+
+      // 🧩 STEP 1: Add the current node’s value to our running total.
+      sum += root.val;
+
+      // 🧩 STEP 2: Check if we’re at a leaf node (no left/right children).
+      // If we are, check if the accumulated sum equals the targetSum.
+      if (!root.left && !root.right) {
+          return sum === targetSum;
+      }
+
+      // 🧩 STEP 3: Recursively explore left and right subtrees.
+      // Each recursive call carries the updated `sum`.
+      let leftTree = getSum(root.left, sum);
+      let rightTree = getSum(root.right, sum);
+
+      // 🧩 STEP 4: Return true if either subtree finds a valid path.
+      return leftTree || rightTree;
+  }
+
+  // 🧩 STEP 5: Initialize recursion starting from the root with sum = 0.
+  return getSum(root, 0);
+};
