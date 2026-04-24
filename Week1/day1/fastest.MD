@@ -93,3 +93,5 @@ Speed	      One pass through array	          O(n)
 Memory	    Stores seen values	              O(n)
 Core Idea	  For each number, look for its complement (target - num)                         	Instant matching via hash map
 Result	    Fastest and most efficient twoSum possible	🚀
+
+Make sure you repeat this solutions for the contexts to sink in deep.
