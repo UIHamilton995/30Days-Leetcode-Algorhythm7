@@ -14,7 +14,7 @@ function removeDuplicates(nums) {
       }
   }
 
-  // `write` is now the length of the unique-prefix
+  // write is now the length of the unique-prefix
   return write;
 };
 
